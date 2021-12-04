@@ -17,5 +17,17 @@ namespace GenerarReportes.Controllers
         {
             return await Mediator.Send(new ListOrdenes.Ejecuta());
         }
+
+        //[HttpGet("{id}")]
+        //public async Task<ActionResult<TblOrdene>> Detalle(int id)
+        //{
+        //    return await Mediator.Send(new ConsultaId.CursoUnico { Id = id });
+        //}
+
+        //[HttpPost]
+        //public async Task<ActionResult<Unit>> Crear(Nuevo.Ejecuta data)
+        //{
+        //    return await Mediator.Send(data);
+        //}
     }
 }

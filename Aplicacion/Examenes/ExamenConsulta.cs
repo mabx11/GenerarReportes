@@ -17,8 +17,9 @@ namespace Aplicacion.Examenes
 
         public class Manejador : IRequestHandler<Ejecuta, List<PerfilDto>>
         {
-            private readonly IMapper _mapper;
             private readonly netLISContext _context;
+            private readonly IMapper _mapper;
+            
             public Manejador(netLISContext context, IMapper mapper)
             {
                 _context = context;
@@ -26,11 +27,11 @@ namespace Aplicacion.Examenes
             }
             public async Task<List<PerfilDto>> Handle(Ejecuta request, CancellationToken cancellationToken)
             {
-                var examen = await _context.TblCatPerfiles
+                var perfil = await _context.TblCatPerfiles
                     .Include(x => x.TblCatPerfilesExamenes)
-                    .ThenInclude(x => x.IdExamen).ToListAsync();
+                    .ThenInclude(x => x.IdExamenNavigation).ToListAsync();
 
-                var perfilDto = _mapper.Map<List<TblCatPerfile>, List<PerfilDto>>(examen);
+                var perfilDto = _mapper.Map<List<TblCatPerfile>, List<PerfilDto>>(perfil);
                 return perfilDto;
             }
         }

@@ -5,8 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
 using Dominio.Model;
+using Aplicacion.Examenes;
 
-namespace Aplicacion.Examenes
+namespace Aplicacion
 {
     public class MappingProfile: Profile
     {
@@ -14,7 +15,7 @@ namespace Aplicacion.Examenes
         {
             CreateMap<TblExamene, ExamenDto>();
             CreateMap<TblCatPerfilesExamene, PerfilExamenDto>();
-            CreateMap<TblCatPerfile, PerfilDto>().ForMember(x => x.Examenes, y => y.MapFrom(z => z.TblCatPerfilesExamenes.Select(a => a.IdPerfiles).ToList())); ;
+            CreateMap<TblCatPerfile, PerfilDto>().ForMember(x => x.Examenes, y => y.MapFrom(z => z.TblCatPerfilesExamenes.Select(a => a.IdExamenNavigation).ToList())); ;
         }
     }
 }

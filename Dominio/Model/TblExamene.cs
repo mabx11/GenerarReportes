@@ -37,5 +37,7 @@ namespace Dominio.Model
         public virtual ICollection<TblCatValoresNormale> TblCatValoresNormales { get; set; }
         public virtual ICollection<TblOrdenesDetalle> TblOrdenesDetalles { get; set; }
         public virtual ICollection<TblResultado> TblResultados { get; set; }
+
+        public ICollection<TblCatPerfilesExamene> PerfilExamenLink { get; set;}
     }
 }

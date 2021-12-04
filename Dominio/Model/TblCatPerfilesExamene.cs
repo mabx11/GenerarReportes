@@ -11,7 +11,7 @@ namespace Dominio.Model
         public int IdExamen { get; set; }
         public int IdPerfiles { get; set; }
 
-        public virtual TblExamene IdExamenNavigation { get; set; }
-        public virtual TblCatPerfile IdPerfilesNavigation { get; set; }
+        public TblExamene IdExamenNavigation { get; set; }
+        public TblCatPerfile IdPerfilesNavigation { get; set; }
     }
 }
